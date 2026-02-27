@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* FIX 1: Changed 'bodysuit' to 'body' */
+body {
+  background: linear-gradient(135deg, #0f0f1a, #1a1a2e);
+  color: white;
+}
+
+/* Navbar */
+nav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #00f5ff;
+  animation: moveLogo 3s infinite alternate ease-in-out;
+  text-shadow: 0 0 5px #00f5ff, 0 0 10px #00f5ff;
+  display: inline-block; /* FIX 2: Allows the logo to move */
+}
+
+@keyframes moveLogo {
+  0% { transform: translateX(0px); }
+  100% { transform: translateX(15px); }
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+ul li a:hover {
+  color: #00f5ff;
+  text-shadow: 0 0 5px #00f5ff;
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, #1f1f3a, #0f0f1a);
+  background-size: 200% 200%;
+  animation: backgroundMove 20s linear infinite;
+  text-align: center;
+}
+
+@keyframes backgroundMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero h1 {
+  background: linear-gradient(90deg, #00f5ff, #ff00c8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* هذا يكفي */
+  /* FIX 3: Replaced text-shadow with drop-shadow to fix the clipping bug */
+  filter: drop-shadow(0 0 5px #00f5ff) drop-shadow(0 0 10px #ff00c8);
+  font-size: 60px;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  /* FIX 3 continued: Updated animation to use filter instead of text-shadow */
+  0% { filter: drop-shadow(0 0 10px #00f5ff) drop-shadow(0 0 20px #00f5ff); }
+  100% { filter: drop-shadow(0 0 20px #ff00c8) drop-shadow(0 0 40px #ff00c8); }
+}
+
+.hero p {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #ccc;
+}
+
+button {
+  margin-top: 30px;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  background: #00f5ff;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 245, 255, 0.4);
+}
+
+button:hover {
+  background: #ff00c8;
+  color: white;
+  transform: scale(1.1) rotate(-2deg);
+  box-shadow: 0 10px 25px rgba(255, 0, 200, 0.5);
+}
+
+/* Services */
+.services {
+  padding: 100px 50px;
+  text-align: center;
+}
+
+.services h2 {
+  margin-bottom: 50px;
+  font-size: 40px;
+  text-shadow: 0 0 5px #00f5ff;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: 15px;
+  width: 250px;
+  transition: 0.4s;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.2);
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 30px #00f5ff, 0 0 50px #ff00c8;
+}
+
+.card h3 {
+  margin-bottom: 15px;
+  color: #00f5ff;
+  text-shadow: 0 0 5px #00f5ff;
+}
+
+.card p {
+  color: #ccc;
+  line-height: 1.5;
+}
+
+/* Footer */
+footer {
+  padding: 30px;
+  text-align: center;
+  background: #0a0a14;
+  color: #888;
+  border-top: 1px solid #222;
+}
+
+/* Fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
