@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nex | Digital Innovation</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="nex.png">
+</head>
+<body>
+
+<nav>
+  <div class="logo">Nex</div>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/projects">Projects</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section class="hero">
+    <h1 class="fade-in">Welcome to Nex Website</h1>
+    <p class="fade-in">We Build The Future Of Digital Innovation</p>
+    <button class="fade-in" aria-label="Get Started">Get Started</button>
+  </section>
+
+  <section id="services" class="services">
+    <h2>Our Services</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Web Design</h3>
+        <p>Modern and responsive designs.</p>
+      </div>
+      <div class="card">
+        <h3>Development</h3>
+        <p>Fast and secure web applications.</p>
+      </div>
+      <div class="card">
+        <h3>UI/UX Design</h3>
+        <p>Clean and intuitive user experience.</p>
+      </div>
+      <div class="card">
+        <h3>SEO Optimization</h3>
+        <p>Improve your search ranking.</p>
+      </div>
+      <div class="card">
+        <h3>Graphic Design</h3>
+        <p>Creative branding and visuals.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="services">
+    <h2>Latest Projects</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Startup Website</h3>
+        <p>Creative business landing page.</p>
+      </div>
+      <div class="card">
+        <h3>E-Commerce</h3>
+        <p>Modern online store platform.</p>
+      </div>
+      <div class="card">
+        <h3>Portfolio</h3>
+        <p>Professional personal branding site.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <p>© 2026 Nex - All Rights Reserved</p>
+  <p>Programmed By Abdenour<p>
+</footer>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const fadeElements = document.querySelectorAll('.fade-in');
+    fadeElements.forEach((el, index) => {
+      // Small delay to ensure CSS is applied
+      setTimeout(() => {
+        el.style.opacity = "1";
+        el.style.transform = "translateY(0)";
+      }, index * 300);
+    });
+  });
+</script>
+
+</body>
+</html>
