@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nex | Digital Innovation</title>
+  <title>Nex</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="nex.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
-<div id="particles-js" style="position: fixed; width: 100%; height: 100%; z-index: -1;"></div>
 <nav>
-  <button onclick="toggleTheme()" style="padding: 5px 15px; font-size: 12px;">Change Color</button>
   <div class="logo">Abdenour</div>
   
   <div class="hamburger" id="hamburger">
@@ -28,13 +24,40 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
-
 <main>
   <section class="hero">
     <h1 class="fade-in">Welcome to Nex Website</h1>
     <p class="fade-in">We Build The Future Of Digital Innovation</p>
     <button id="getStartedBtn" class="fade-in">Get Started</button>
   </section>
+
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    
+    <div id="login-area">
+      <h2>Login to Nex</h2>
+      <form id="loginForm">
+        <input type="text" id="login-username" placeholder="Username" required>
+        <input type="password" id="login-pass" placeholder="Password" required>
+        <button type="submit" class="login-submit">Login</button>
+      </form>
+      <p>Don't have an account? <a href="#" id="go-to-signup">Sign Up</a></p>
+    </div>
+
+    <div id="signup-area" style="display: none;">
+      <h2>Create New Account</h2>
+      <form id="signupForm">
+        <input type="text" id="signup-username" placeholder="Choose Username" required>
+        <input type="password" id="signup-pass" placeholder="Password (min 8 chars)" required>
+        <input type="password" id="confirm-pass" placeholder="Confirm Password" required>
+        <button type="submit" class="login-submit" style="background: #ff00c8;">Create Account</button>
+      </form>
+      <p>Already have an account? <a href="#" id="go-to-login">Login</a></p>
+    </div>
+  </div>
+</div>
+
 
   <section id="services" class="services">
     <h2>Our Services</h2>
@@ -79,68 +102,25 @@
       </div>
     </div>
   </section>
-</main>
-
-
-<div id="loginModal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn">&times;</span>
-    
-    <div id="login-area">
-      <h2>Login to Nex</h2>
-      <form id="loginForm">
-        <input type="text" id="login-username" placeholder="Username" required>
-        <input type="password" id="login-pass" placeholder="Password" required>
-        <button type="submit" class="login-submit">Login</button>
-      </form>
-      <p>Don't have an account? <a href="#" id="go-to-signup">Sign Up</a></p>
-    </div>
-
-    <div id="signup-area" style="display: none;">
-      <h2>Create New Account</h2>
-      <form id="signupForm">
-        <input type="text" id="signup-username" placeholder="Choose Username" required>
-        <input type="password" id="signup-pass" placeholder="Password (min 8 chars)" required>
-        <input type="password" id="confirm-pass" placeholder="Confirm Password" required>
-        <button type="submit" class="login-submit" style="background: #ff00c8;">Create Account</button>
-      </form>
-      <p>Already have an account? <a href="#" id="go-to-login">Login</a></p>
-    </div>
-  </div>
-</div>
-
-<script src="system.js"></script>
-
-  <section class="services">
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq-container" style="max-width: 600px; margin: 0 auto; text-align: left;">
-    <details style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; margin-bottom: 10px; cursor: pointer;">
-      <summary style="color: #00f5ff; font-weight: bold;">How long does a project take?</summary>
-      <p style="padding-top: 10px; color: #ccc;">Usually 2-4 weeks depending on the complexity.</p>
-    </details>
-    <details style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; margin-bottom: 10px; cursor: pointer;">
-      <summary style="color: #00f5ff; font-weight: bold;">Do you offer support?</summary>
-      <p style="padding-top: 10px; color: #ccc;">Yes, we provide 24/7 technical support for all our clients.</p>
-    </details>
-  </div>
-</section>
-
 <footer id="contact">
   <div class="social-links">
-    <a href="https://instagram.com/z5zy0" target="_blank" class="social-icon">
+    <a href="https://instagram.com/z5zy0" target="_blank" class="social-icon instagram">
       <i class="fab fa-instagram"></i>
     </a>
-    <a href="https://discord.gg/z7_d" target="_blank" class="social-icon">
+    <a href="https://discord.gg/z7_d" target="_blank" class="social-icon discord">
       <i class="fab fa-discord"></i>
     </a>
-    <a href="https://t.me/z5zy0" target="_blank" class="social-icon">
+    <a href="https://t.me/z5zy0" target="_blank" class="social-icon telegram">
       <i class="fab fa-telegram-plane"></i>
     </a>
   </div>
-  <p>Programmed By Abdenour</p>
-<p>© 2026 Nex - All Rights Reserved</p>
+  <div class="footer-text">
+    <p>Programmed By <span>Abdenour</span></p>
+    <p>© 2026 <span>Nex</span> - All Rights Reserved</p>
+  </div>
+
 </footer>
-
+</main>
+  <script src="system.js"></script>
 </body>
-
 </html>
