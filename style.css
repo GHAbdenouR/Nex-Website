@@ -129,24 +129,39 @@ button:hover {
   text-shadow: 0 0 5px #00f5ff;
 }
 
+/* تصحيح القائمة لتصبح أفقية */
+nav ul {
+  list-style: none;
+  display: flex; /* ترتيب العناصر بجانب بعضها */
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+/* تحسين مظهر الكروت وتوزيعها */
 .cards {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
+  gap: 25px;
+  flex-wrap: wrap; /* النزول لسطر جديد في الشاشات الصغيرة */
+  padding: 40px 20px;
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.03); /* شفافية عالية */
-  backdrop-filter: blur(15px); /* التضبيب */
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.1); /* خط زجاجي نحيف */
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px); /* تأثير الزجاج */
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  padding: 30px;
+  border-radius: 20px;
+  width: 280px;
+  text-align: center;
+  transition: 0.4s ease;
 }
 
 .card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 0 30px #00f5ff, 0 0 50px #ff00c8;
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+  border-color: #ff00c8;
 }
 
 .card h3 {
@@ -368,47 +383,63 @@ button:hover {
 }
 
 /* التذييل - Footer */
+/* تنسيق التذييل (Footer) */
 footer {
   padding: 50px 20px;
-  text-align: center;
   background: #0a0a14;
-  border-top: 1px solid #222;
+  text-align: center;
+  border-top: 1px solid #1a1a2e;
 }
 
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 25px;
-  margin-bottom: 20px;
+  gap: 30px;
+  margin-bottom: 25px;
 }
 
 .social-icon {
-  font-size: 30px; /* حجم الأيقونة */
-  color: #888;
-  transition: 0.4s ease;
+  font-size: 35px; /* حجم الأيقونة */
+  color: #888; /* لون باهت في البداية */
+  transition: all 0.4s ease;
   text-decoration: none;
 }
 
-/* لون الانستقرام عند الحوم */
-.social-icon:hover .fa-instagram {
+/* تأثيرات النيون عند الحوم (Hover) */
+
+/* Instagram - زهري */
+.social-icon.instagram:hover {
   color: #ff00c8;
   filter: drop-shadow(0 0 10px #ff00c8);
+  transform: translateY(-5px);
 }
 
-/* لون الديسكورد عند الحوم */
-.social-icon:hover .fa-discord {
+/* Discord - بنفسجي */
+.social-icon.discord:hover {
   color: #5865F2;
   filter: drop-shadow(0 0 10px #5865F2);
+  transform: translateY(-5px);
 }
 
-/* لون التلغرام عند الحوم */
-.social-icon:hover .fa-telegram-plane {
+/* Telegram - أزرق سماوي */
+.social-icon.telegram:hover {
   color: #00f5ff;
   filter: drop-shadow(0 0 10px #00f5ff);
+  transform: translateY(-5px);
 }
 
-.social-icon:hover {
-  transform: translateY(-5px) scale(1.2);
+/* تنسيق النصوص */
+.footer-text p {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0;
+  letter-spacing: 1px;
+}
+
+.footer-text span {
+  color: #00f5ff; /* اسمك بلون النيون */
+  font-weight: bold;
+  text-shadow: 0 0 5px #00f5ff;
 }
 
 footer p {
@@ -422,98 +453,3 @@ footer p {
   transform: translateY(20px);
   transition: all 0.8s ease;
 }
-/* --- إعدادات التجاوب للهواتف (Mobile Responsive) --- */
-
-@media (max-width: 768px) {
-    /* 1. تعديل القائمة (Navbar) */
-    nav {
-        padding: 15px 20px;
-        flex-direction: column; /* جعل اللوجو فوق الروابط */
-        gap: 15px;
-    }
-
-    ul {
-        gap: 15px;
-        font-size: 14px;
-    }
-
-    /* 2. تعديل القسم الرئيسي (Hero) */
-    .hero h1 {
-        font-size: 35px; /* تصغير العنوان الكبير */
-        padding: 0 10px;
-    }
-
-    .hero p {
-        font-size: 16px;
-        padding: 0 20px;
-    }
-
-    /* 3. تعديل الكروت (Cards) */
-    .cards {
-        gap: 20px;
-        padding: 0 10px;
-    }
-
-    .card {
-        width: 100%; /* الكرت يأخذ عرض الشاشة بالكامل في الهاتف */
-        max-width: 300px;
-    }
-
-    /* 4. تعديل واجهة تسجيل الدخول (Modal) */
-    .modal-content {
-        width: 90%; /* الصندوق يأخذ 90% من عرض شاشة الهاتف */
-        margin: 20% auto;
-        padding: 30px 20px;
-    }
-
-    .modal-content h2 {
-        font-size: 22px;
-    }
-}
-/* إعدادات الهمبرغر - مخفية في الحاسوب */
-.hamburger {
-  display: none;
-  cursor: pointer;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.hamburger span {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background-color: #00f5ff;
-  transition: 0.3s;
-}
-
-/* --- إعدادات الموبايل (أقل من 768px) --- */
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex; /* إظهار الأيقونة في الهاتف */
-  }
-
-  ul {
-    position: absolute;
-    top: 70px;
-    right: -100%; /* مخفية خارج الشاشة يميناً */
-    background: rgba(15, 15, 26, 0.95);
-    backdrop-filter: blur(10px);
-    width: 100%;
-    height: calc(100vh - 70px);
-    flex-direction: column;
-    align-items: center;
-    padding-top: 50px;
-    transition: 0.5s;
-    z-index: 999;
-  }
-
-  ul.active {
-    right: 0; /* تظهر عند الضغط */
-  }
-
-  /* تحويل شكل الأيقونة إلى X عند الفتح */
-  .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-  .hamburger.active span:nth-child(2) { opacity: 0; }
-  .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-}
-
