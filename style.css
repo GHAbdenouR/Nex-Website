@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -6,13 +7,13 @@
   scroll-behavior: smooth;
 }
 
-/* FIX 1: Changed 'bodysuit' to 'body' */
 body {
   background: linear-gradient(135deg, #0f0f1a, #1a1a2e);
   color: white;
+  overflow-x: hidden;
 }
 
-/* Navbar */
+/* شريط التنقل - Navbar */
 nav {
   position: sticky;
   top: 0;
@@ -28,10 +29,10 @@ nav {
 .logo {
   font-size: 28px;
   font-weight: bold;
-  color: #00f5ff;
+  color: #ff0000;
   animation: moveLogo 3s infinite alternate ease-in-out;
-  text-shadow: 0 0 5px #00f5ff, 0 0 10px #00f5ff;
-  display: inline-block; /* FIX 2: Allows the logo to move */
+  text-shadow: 0 0 5px #d1ff05, 0 0 10px #3700ff;
+  display: inline-block;
 }
 
 @keyframes moveLogo {
@@ -56,7 +57,7 @@ ul li a:hover {
   text-shadow: 0 0 5px #00f5ff;
 }
 
-/* Hero */
+/* القسم الرئيسي - Hero Section */
 .hero {
   height: 100vh;
   display: flex;
@@ -78,15 +79,13 @@ ul li a:hover {
 .hero h1 {
   background: linear-gradient(90deg, #00f5ff, #ff00c8);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; /* هذا يكفي */
-  /* FIX 3: Replaced text-shadow with drop-shadow to fix the clipping bug */
+  -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 0 5px #00f5ff) drop-shadow(0 0 10px #ff00c8);
   font-size: 60px;
   animation: glow 2s infinite alternate;
 }
 
 @keyframes glow {
-  /* FIX 3 continued: Updated animation to use filter instead of text-shadow */
   0% { filter: drop-shadow(0 0 10px #00f5ff) drop-shadow(0 0 20px #00f5ff); }
   100% { filter: drop-shadow(0 0 20px #ff00c8) drop-shadow(0 0 40px #ff00c8); }
 }
@@ -97,6 +96,7 @@ ul li a:hover {
   color: #ccc;
 }
 
+/* الأزرار - Buttons */
 button {
   margin-top: 30px;
   padding: 12px 30px;
@@ -117,13 +117,13 @@ button:hover {
   box-shadow: 0 10px 25px rgba(255, 0, 200, 0.5);
 }
 
-/* Services */
-.services {
+/* الأقسام والكروت - Sections & Cards */
+.services, .contact-section {
   padding: 100px 50px;
   text-align: center;
 }
 
-.services h2 {
+.services h2, .contact-section h2 {
   margin-bottom: 50px;
   font-size: 40px;
   text-shadow: 0 0 5px #00f5ff;
@@ -162,18 +162,359 @@ button:hover {
   line-height: 1.5;
 }
 
-/* Footer */
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* نافذة تسجيل الدخول - Login Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+/* تنسيق صندوق المحتوى الرئيسي */
+.modal-content {
+    background: #1a1a2e;
+    margin: 8% auto; /* تقليل الهامش العلوي قليلاً ليتوسط الشاشة */
+    padding: 40px;
+    border: 1px solid #00f5ff;
+    border-radius: 20px;
+    width: 380px; /* زيادة العرض قليلاً للراحة */
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 245, 255, 0.3);
+    position: relative;
+    color: white;
+}
+
+/* تنسيق العناوين داخل الواجهات */
+.modal-content h2 {
+    margin-bottom: 25px;
+    color: #00f5ff;
+    font-size: 26px;
+    text-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+}
+
+/* تنسيق خانات الإدخال */
+.modal-content input {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0; /* مسافة بين الخانات */
+    background: #0f0f1a;
+    border: 1px solid #333;
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.modal-content input:focus {
+    border-color: #00f5ff;
+    box-shadow: 0 0 10px rgba(0, 245, 255, 0.2);
+}
+
+/* تنسيق زر الإرسال */
+.login-submit {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    margin-bottom: 20px; /* مسافة تحت الزر */
+    border-radius: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* --- نافذة تسجيل الدخول والاشتراك (Modal) --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* تعميق الخلفية قليلاً */
+  backdrop-filter: blur(8px);
+}
+
+.modal-content {
+  background: #1a1a2e;
+  margin: 5% auto; /* خفضنا النسبة ليعطي مساحة أكبر للواجهة الطويلة */
+  padding: 50px 40px; /* زيادة التباعد الداخلي */
+  border: 1px solid #00f5ff;
+  border-radius: 25px;
+  width: 400px; /* عرض أكبر لراحة العين */
+  text-align: center;
+  box-shadow: 0 0 40px rgba(0, 245, 255, 0.2);
+  position: relative;
+  animation: modalSlide 0.4s ease-out;
+}
+
+@keyframes modalSlide {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #00f5ff;
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
+}
+
+/* تنسيق المدخلات */
+.modal-content input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px; /* مسافة ثابتة بين الخانات */
+  background: #0f0f1a;
+  border: 1px solid #333;
+  color: white;
+  border-radius: 12px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.modal-content input:focus {
+  border-color: #00f5ff;
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.2);
+  background: #141425;
+}
+
+/* تنسيق الأزرار داخل المودال */
+.login-submit {
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* تنسيق النصوص السفلية (التبديل بين الحسابات) */
+.modal-content p {
+  margin-top: 25px; /* هبطنا الكتيبة هنا */
+  font-size: 14px;
+  color: #888;
+}
+
+.modal-content p a {
+  color: #00f5ff;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 5px;
+  transition: 0.3s;
+}
+
+.modal-content p a:hover {
+  color: #ff00c8;
+  text-shadow: 0 0 5px #ff00c8;
+}
+
+/* زر الإغلاق */
+.close-btn {
+  position: absolute;
+  right: 25px;
+  top: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  color: #ff00c8;
+  transform: rotate(90deg);
+}
+
+/* واجهة الـ Sign Up تحديداً */
+#signup-area .login-submit {
+  background: linear-gradient(45deg, #ff00c8, #8000ff);
+  color: white;
+}
+
+#signup-area .login-submit:hover {
+  box-shadow: 0 0 20px rgba(255, 0, 200, 0.4);
+  transform: scale(1.02);
+}
+
+#loginForm input {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  background: #0f0f1a;
+  border: 1px solid #333;
+  color: white;
+  border-radius: 8px;
+  outline: none;
+}
+
+#loginForm input:focus {
+  border-color: #00f5ff;
+}
+
+.login-submit {
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* التذييل - Footer */
 footer {
-  padding: 30px;
+  padding: 50px 20px;
   text-align: center;
   background: #0a0a14;
-  color: #888;
   border-top: 1px solid #222;
 }
 
-/* Fade-in */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.social-icon {
+  font-size: 30px; /* حجم الأيقونة */
+  color: #888;
+  transition: 0.4s ease;
+  text-decoration: none;
+}
+
+/* لون الانستقرام عند الحوم */
+.social-icon:hover .fa-instagram {
+  color: #ff00c8;
+  filter: drop-shadow(0 0 10px #ff00c8);
+}
+
+/* لون الديسكورد عند الحوم */
+.social-icon:hover .fa-discord {
+  color: #5865F2;
+  filter: drop-shadow(0 0 10px #5865F2);
+}
+
+/* لون التلغرام عند الحوم */
+.social-icon:hover .fa-telegram-plane {
+  color: #00f5ff;
+  filter: drop-shadow(0 0 10px #00f5ff);
+}
+
+.social-icon:hover {
+  transform: translateY(-5px) scale(1.2);
+}
+
+footer p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* تأثيرات الظهور - Animations */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.8s ease;
+}
+/* --- إعدادات التجاوب للهواتف (Mobile Responsive) --- */
+
+@media (max-width: 768px) {
+    /* 1. تعديل القائمة (Navbar) */
+    nav {
+        padding: 15px 20px;
+        flex-direction: column; /* جعل اللوجو فوق الروابط */
+        gap: 15px;
+    }
+
+    ul {
+        gap: 15px;
+        font-size: 14px;
+    }
+
+    /* 2. تعديل القسم الرئيسي (Hero) */
+    .hero h1 {
+        font-size: 35px; /* تصغير العنوان الكبير */
+        padding: 0 10px;
+    }
+
+    .hero p {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+
+    /* 3. تعديل الكروت (Cards) */
+    .cards {
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .card {
+        width: 100%; /* الكرت يأخذ عرض الشاشة بالكامل في الهاتف */
+        max-width: 300px;
+    }
+
+    /* 4. تعديل واجهة تسجيل الدخول (Modal) */
+    .modal-content {
+        width: 90%; /* الصندوق يأخذ 90% من عرض شاشة الهاتف */
+        margin: 20% auto;
+        padding: 30px 20px;
+    }
+
+    .modal-content h2 {
+        font-size: 22px;
+    }
+}
+/* إعدادات الهمبرغر - مخفية في الحاسوب */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #00f5ff;
+  transition: 0.3s;
+}
+
+/* --- إعدادات الموبايل (أقل من 768px) --- */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex; /* إظهار الأيقونة في الهاتف */
+  }
+
+  ul {
+    position: absolute;
+    top: 70px;
+    right: -100%; /* مخفية خارج الشاشة يميناً */
+    background: rgba(15, 15, 26, 0.95);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    height: calc(100vh - 70px);
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    transition: 0.5s;
+    z-index: 999;
+  }
+
+  ul.active {
+    right: 0; /* تظهر عند الضغط */
+  }
+
+  /* تحويل شكل الأيقونة إلى X عند الفتح */
+  .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
