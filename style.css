@@ -427,7 +427,11 @@ footer {
   filter: drop-shadow(0 0 10px #00f5ff);
   transform: translateY(-5px);
 }
-
+.social-icon.tiktok:hover {
+  color: #000000;
+  filter: drop-shadow(0 0 10px #000000);
+  transform: translateY(-5px);
+}
 /* تنسيق النصوص */
 .footer-text p {
   font-size: 14px;
@@ -453,3 +457,4 @@ footer p {
   transform: translateY(20px);
   transition: all 0.8s ease;
 }
+
