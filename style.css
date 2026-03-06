@@ -31,7 +31,7 @@ nav {
   font-weight: bold;
   color: #ff0000;
   animation: moveLogo 3s infinite alternate ease-in-out;
-  text-shadow: 0 0 5px #d1ff05, 0 0 10px #3700ff;
+  text-shadow: 0 0 5px #000000, 0 0 10px #ff0000;
   display: inline-block;
 }
 
@@ -457,4 +457,5 @@ footer p {
   transform: translateY(20px);
   transition: all 0.8s ease;
 }
+
 
